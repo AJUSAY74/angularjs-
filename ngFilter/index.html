@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="colorApp">
+  <head>
+    <meta charset="utf-8">
+    <title>NG-Filter</title>
+    <script src='bower_components/angular/angular.js'></script>
+    <script src='my_colors.js'></script>
+  </head>
+  <body>
+<div ng-controller="ColorController">
+  <input type="text" ng-model="color_filter">
+  <table>
+    <tr>
+      <th>Name: </th>
+      <th>HEX: </th>
+      <th>RGB: </th>
+    </tr>
+    <tr ng-repeat="color in colors | orderBy: 'hex' | filter:color_filter ">
+      <td ng-bind="color.name" style="background-color: {{color.hex}}"></td>
+      <td ng-bind="color.hex"></td>
+      <td ng-bind="color.rgb"></td>
+    </tr>
+  </table>
+
+</div>
+  </body>
+</html>
