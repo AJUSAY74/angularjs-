@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Build a Controller</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript">
+    var myApp = angular.module('myApp', []);
+      myApp.controller('foodController', function (){
+        this.food = [
+          {name:'fried chicken'},
+          {name:'spaghetti'},
+          {name:'cheese burger'},
+          {name:'popcorn'},
+          {name:'ice cream'},
+          {name:'salad'},
+          {name:'pizza'},
+          {name:'buffalo wings'},
+      ];
+          this.newFood = function(){
+            this.food.push(this.newfood);
+            console.log(this.myfood);
+          }
+        });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="foodController as foodCtrl">
+      <h1>Build a Controller</h1>
+      <form>
+        <label for="">Favorite Food: </label>
+        <input type="text" ng-model="foodCtrl.newfood.name" placeholder="ex. spaghetti">
+        <input type="submit" ng-click="foodCtrl.newFood()" value="Add Food">
+      </form>
+
+        <p>Currently typing: </p>
+        <p ng-bind="foodCtrl.newfood.name"></p><br>
+
+        <li ng-repeat="food in foodCtrl.food">{{ food.name }}</li>
+
+  </div>
+
+  </body>
+</html>
